@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    
+    <html lang="en">
+        <head>
+            <meta charset="UTF=8">
+            <meta name="viewport" content="width=device-width , initial-scale=1.0">
+            <title>Coming_Soon Landing Page</title>
+            <link rel="stylesheet" href="style.css">
+            
+    </head>
+    <body>
+        <div class="hero">
+            <body background="ima/fondo.jpg"></body>
+
+            
+                <div class="container-inside">
+                    <img src="ima/site under construction.png"alt="site construction" width="300px" height="90px"></img>
+                    <br>
+                        <div class="logo">
+                        <img src="ima/logo.png"alt="logo" width="600px" height="180px"></img>
+                        <br>
+                            <img src="ima/coming soon.png"alt="Coming_Soon" width="200px" height="100px"></img> 
+                        <br>  
+                            <img src="ima/join our newsletter.png"alt="newsletter" width="300px" height="70px"></img> 
+                            
+            <form class="button" name="submit-to-google-sheet">
+                <input type="email" name="Email" placeholder="your email " required>
+                <button type="submit">Join</button>
+            </form>
+            <br>
+            <br>
+            <span id="msg"></span>
+        </div>
+            
+        
+        <img src="ima/socials.png"alt="social" width="350px" height="70px"></img> 
+                    </div>
+                    <div class="insta">
+                       <i class="instagramicon"></i>
+                        <a href="http://www.instagram.com/mad_customelectronics"><img src="ima/instagram_logo_128px.png"  width="60px" height="60px"></a>
+                    </div>
+                    <div class="youtu">
+                        <i class="youtubeicon"></i>
+                        <a href="https://www.youtube.com/@madcustomelectronics"><img src="ima/youtube-symbol_49411.png" width="60px" height="60px"></a>
+                    </div>
+                    </div>
+                    </div>
+
+            <script>
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbz4diurKJ94a9BTKEqLLhJkc4usBKWyG1Ui_WB5RXGyd-tyhRLaWCTi4wJIfS2ng_BpRQ/exec'
+            const form = document.forms['submit-to-google-sheet']
+            const msg = document.getElementById("msg")
+
+            form.addEventListener('submit', e => {
+              e.preventDefault()
+              fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => {
+                msg.innerHTML ="Thanks for joining!"
+                setTimeout(function() {
+                    msg.innerHTML= ""
+                    }, 5000)
+                    form.reset()
+                })
+                .catch(error => console.error('Error!', error.message))
+            })
+          </script>
+
+    </body>
+</html>
